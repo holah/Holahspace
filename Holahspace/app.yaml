@@ -1,0 +1,32 @@
+application: holah
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /(.*\.(gif|png|jpg|ico|js|css|svg))
+  static_files: css?\1
+  upload: (.*\.(gif|png|jpg|ico|js|css|svg))
+
+- url: /stylesheets
+  static_dir: stylesheets
+   
+- url: /img/
+  static_dir: img
+   
+- url: /contact_me.php
+  script: contact_me.php
+  
+- url: /js/
+  static_dir: js
+  
+- url: /index\.php
+  script: contact_me.php
+
+- url: /.*
+  script: index.php  
+  
+inbound_services:
+- mail

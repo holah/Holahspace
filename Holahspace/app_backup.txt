@@ -1,0 +1,77 @@
+application: holahspace
+version: 3
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /(.*\.(gif|png|jpg|ico|js|css|svg))
+  static_files: \1
+  upload: (.*\.(gif|png|jpg|ico|js|css|svg))
+  
+- url: /css/
+  static_dir: css
+  
+- url: /fonts/(.*\.otf)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.otf)
+  mime_type: application/x-font-otf
+
+- url: /fonts/(.*\.ttf)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.ttf)
+  mime_type: application/x-font-ttf
+  
+- url: /fonts/(.*\.woff)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.woff)
+  mime_type: application/font-woff
+
+- url: /fonts/(.*\.svg)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.svg)
+  mime_type: image/svg+xml
+
+- url: /fonts/(.*\.eot)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.eot)
+  mime_type: application/vnd.ms-fontobject  
+
+- url: /font-awesome/fonts/(.*\.otf)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.otf)
+  mime_type: application/x-font-otf
+
+- url: /font-awesome/fonts/(.*\.ttf)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.ttf)
+  mime_type: application/x-font-ttf
+  
+- url: /font-awesome/fonts/(.*\.woff)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.woff)
+  mime_type: application/font-woff
+  
+- url: /font-awesome/fonts/(.*\.svg)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.svg)
+  mime_type: image/svg+xml
+  
+- url: /font-awesome/fonts/(.*\.eot)
+  static_files: /fonts/\1
+  upload: /fonts/(.*\.eot)
+  mime_type: application/vnd.ms-fontobject
+ 
+- url: /contact_me.php
+  script: contact_me.php
+  
+- url: /js/
+  static_dir: js
+  
+- url: /.*
+  script: index.php 
+  
+- url: /index\.php
+  script: contact_me.php
+ 
+inbound_services:
+- mail
